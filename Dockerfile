@@ -19,10 +19,5 @@ RUN        apk add --no-cache bash curl openjdk8 && \
            && tar -xf $PHANTOMJS_ARCHIVE -C /tmp/ && cp -R /tmp/etc/fonts /etc/ && cp -R /tmp/lib/* /lib/ && cp -R /tmp/lib64 / && cp -R /tmp/usr/lib/* /usr/lib/ \
            && cp -R /tmp/usr/lib/x86_64-linux-gnu /usr/ && cp -R /tmp/usr/share/* /usr/share/ && cp /tmp/usr/local/bin/phantomjs /usr/bin/ && rm -fr $PHANTOMJS_ARCHIVE /tmp/*
 EXPOSE     8080 8081 8443
-VOLUME     ${NIFI_HOME}/logs \
-           ${NIFI_HOME}/flowfile_repository \
-           ${NIFI_HOME}/database_repository \
-           ${NIFI_HOME}/content_repository \
-           ${NIFI_HOME}/provenance_repository
 WORKDIR    ${NIFI_HOME}
 CMD        ./bin/nifi.sh run
